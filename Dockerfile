@@ -1,9 +1,5 @@
 FROM php:7.4-apache
 
-# 设置容器名称（可选，但建议）
-LABEL maintainer="ack20a <your.email@example.com>"
-LABEL org.opencontainers.image.source="https://github.com/your-repo/your-project" # 替换为你的仓库地址
-
 # 复制项目文件
 COPY . /var/www/html/
 
