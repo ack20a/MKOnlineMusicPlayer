@@ -58,6 +58,10 @@
             list-style: decimal;
         }
     </style>
+
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#000000">
+    <link rel="apple-touch-icon" href="images/icons/apple-touch-icon.png">
 </head>
 <body>
 
@@ -198,6 +202,20 @@
         <li>移动端（手机、平板用户）请双击播放，第一次点击是加载，第二点击是播放，为防止误操作。</li>
         <li>有事可以联系站长QQ&nbsp;<a href="https://wpa.qq.com/msgrd?v=3&uin=3170953705&site=qq&menu=yes" target="_blank" style="color: #72ACE3">3170953705</a>，不经常在线，有事请留言。</li>
     </ul>
+</script>
+
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then(registration => {
+        console.log('ServiceWorker registration successful');
+      })
+      .catch(err => {
+        console.log('ServiceWorker registration failed: ', err);
+      });
+  });
+}
 </script>
 
 </body>
