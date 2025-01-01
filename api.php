@@ -109,7 +109,7 @@ switch($types)   // 根据请求的 Api，执行相应操作
             if(file_exists($cache)) {   // 缓存存在，则读取缓存
                 $data = file_get_contents($cache);
             } else {
-                $url= 'http://music.163.com/api/user/playlist/?offset=0&limit=1001&uid='.$uid;
+                $url= 'https://unlockerapi.ack20.eu.org/api/user/playlist/?offset=0&limit=1001&uid='.$uid;
                 $data = file_get_contents($url);
 
                 // 只缓存链接获取成功的用户列表
@@ -118,7 +118,7 @@ switch($types)   // 根据请求的 Api，执行相应操作
                 }
             }
         } else {
-            $url= 'http://music.163.com/api/user/playlist/?offset=0&limit=1001&uid='.$uid;
+            $url= 'https://unlockerapi.ack20.eu.org/api/user/playlist/?offset=0&limit=1001&uid='.$uid;
             $data = file_get_contents($url);
         }
         

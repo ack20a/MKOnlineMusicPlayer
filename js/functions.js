@@ -439,7 +439,7 @@ function comments(obj) {
                 return;
             }
             if (obj.source === 'netease') {
-                $(".banner_text a").attr("href", "https://music.163.com/#/song?id="+obj.id+"#comment-box");
+                $(".banner_text a").attr("href", "https://unlockerapi.ack20.eu.org/#/song?id="+obj.id+"#comment-box");
             } else if (obj.source === 'kugou') {
                 $(".banner_text a").attr("href", "https://www.kugou.com/song/#hash="+obj.id);
             } else if (obj.source === 'tencent') {
