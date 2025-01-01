@@ -123,7 +123,7 @@ function ajaxUrl(music, callback)
             // 解决网易云音乐部分歌曲无法播放问题
             if(music.source == "netease") {
                 if(jsonData.url === "") {
-                    jsonData.url = "https://unlockerapi.ack20.eu.org/song/media/outer/url?id=" + music.id + ".mp3";
+                    jsonData.url = "https://music.163.com/song/media/outer/url?id=" + music.id + ".mp3";
                 } else {
                     jsonData.url = jsonData.url.replace(/m7c.music./g, "m7.music.");
                     jsonData.url = jsonData.url.replace(/m8c.music./g, "m8.music.");

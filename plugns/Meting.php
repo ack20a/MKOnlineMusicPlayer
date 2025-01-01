@@ -175,7 +175,7 @@ class Meting
             case 'netease':
             $api = array(
                 'method' => 'POST',
-                'url'    => 'https://unlockerapi.ack20.eu.org/api/cloudsearch/pc',
+                'url'    => 'http://music.163.com/api/cloudsearch/pc',
                 'body'   => array(
                     's'      => $keyword,
                     'type'   => isset($option['type']) ? $option['type'] : 1,
@@ -283,7 +283,7 @@ class Meting
             case 'netease':
             $api = array(
                 'method' => 'POST',
-                'url'    => 'https://unlockerapi.ack20.eu.org/api/v3/song/detail/',
+                'url'    => 'http://music.163.com/api/v3/song/detail/',
                 'body'   => array(
                     'c' => '[{"id":'.$id.',"v":0}]',
                 ),
@@ -367,7 +367,7 @@ class Meting
             case 'netease':
             $api = array(
                 'method' => 'POST',
-                'url'    => 'https://unlockerapi.ack20.eu.org/api/v1/album/'.$id,
+                'url'    => 'http://music.163.com/api/v1/album/'.$id,
                 'body'   => array(
                     'total'         => 'true',
                     'offset'        => '0',
@@ -460,7 +460,7 @@ class Meting
             case 'netease':
             $api = array(
                 'method' => 'POST',
-                'url'    => 'https://unlockerapi.ack20.eu.org/api/v1/artist/'.$id,
+                'url'    => 'http://music.163.com/api/v1/artist/'.$id,
                 'body'   => array(
                     'ext'           => 'true',
                     'private_cloud' => 'true',
@@ -561,7 +561,7 @@ class Meting
             case 'netease':
             $api = array(
                 'method' => 'POST',
-                'url'    => 'https://unlockerapi.ack20.eu.org/api/v6/playlist/detail',
+                'url'    => 'http://music.163.com/api/v6/playlist/detail',
                 'body'   => array(
                     's'  => '0',
                     'id' => $id,
@@ -657,7 +657,7 @@ class Meting
             case 'netease':
             $api = array(
                 'method' => 'POST',
-                'url'    => 'https://unlockerapi.ack20.eu.org/api/song/enhance/player/url',
+                'url'    => 'http://music.163.com/api/song/enhance/player/url',
                 'body'   => array(
                     'ids' => array($id),
                     'br'  => $br * 1000,
@@ -757,7 +757,7 @@ class Meting
             case 'netease':
             $api = array(
                 'method'     => 'POST',
-                'url'        => 'https://unlockerapi.ack20.eu.org/weapi/v1/resource/comments/R_SO_4_'.$id,
+                'url'        => 'http://music.163.com/weapi/v1/resource/comments/R_SO_4_'.$id,
                 'body'       => array(
                     'rid'    => 'R_SO_4_'.$id,
                     'offset' => isset($option['page']) && isset($option['limit']) ? ($option['page'] - 1) * $option['limit'] : 0,
@@ -850,7 +850,7 @@ class Meting
             case 'netease':
             $api = array(
                 'method' => 'POST',
-                'url'    => 'https://unlockerapi.ack20.eu.org/api/song/lyric',
+                'url'    => 'http://music.163.com/api/song/lyric',
                 'body'   => array(
                     'id' => $id,
                     'os' => 'linux',
@@ -980,7 +980,7 @@ class Meting
         switch ($this->server) {
             case 'netease':
             return array(
-                'Referer'         => 'https://unlockerapi.ack20.eu.org/',
+                'Referer'         => 'https://music.163.com/',
                 'Cookie'          => 'appver=8.2.30; os=iPhone OS; osver=15.0; EVNSM=1.0.0; buildver=2206; channel=distribution; machineid=iPhone13.3',
                 'User-Agent'      => 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 CloudMusic/0.1.1 NeteaseMusic/8.2.30',
                 'X-Real-IP'       => long2ip(mt_rand(1884815360, 1884890111)),
