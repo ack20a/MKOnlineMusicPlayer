@@ -42,7 +42,7 @@ function ajaxSearch() {
                 rem.mainList.html('');   // 清空列表中原有的元素
                 addListhead();      // 加载列表头
             } else {
-                $("#list-foot").remove();     //已经是加载后面的页码了，删除之前的“加载更多”提示
+                $("#list-foot").remove();     //已经是加载后面的页码了，删除之前的"加载更多"提示
             }
             
             if(jsonData.length === 0)
@@ -123,7 +123,10 @@ function ajaxUrl(music, callback)
             // 解决网易云音乐部分歌曲无法播放问题
             if(music.source == "netease") {
                 if(jsonData.url === "") {
-                    jsonData.url = "https://music.163.com/song/media/outer/url?id=" + music.id + ".mp3";
+                    // 使用代理服务器的 URL
+                    jsonData.url = mkPlayer.proxy.enabled ? 
+                        `${mkPlayer.proxy.protocol}://${mkPlayer.proxy.host}:${mkPlayer.proxy.port}/song/media/outer/url?id=${music.id}.mp3` :
+                        `https://music.163.com/song/media/outer/url?id=${music.id}.mp3`;
                 } else {
                     jsonData.url = jsonData.url.replace(/m7c.music./g, "m7.music.");
                     jsonData.url = jsonData.url.replace(/m8c.music./g, "m8.music.");

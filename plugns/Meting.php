@@ -91,7 +91,7 @@ class Meting
         return $this->data;
     }
 
-    private function curl($url, $payload = null, $headerOnly = 0)
+    private function curl($url, $payload = null, $headerOnly = false)
     {
         $header = array_map(function ($k, $v) {
             return $k.': '.$v;
@@ -112,6 +112,13 @@ class Meting
         curl_setopt($curl, CURLOPT_HTTPHEADER, $header);
         if ($this->proxy) {
             curl_setopt($curl, CURLOPT_PROXY, $this->proxy);
+        }
+        if(defined('USE_PROXY') && USE_PROXY === true) {
+            curl_setopt($curl, CURLOPT_PROXY, PROXY_HOST);
+            curl_setopt($curl, CURLOPT_PROXYPORT, PROXY_PORT);
+            curl_setopt($curl, CURLOPT_PROXYTYPE, CURLPROXY_HTTPS);
+            curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
         }
         for ($i = 0; $i < 3; $i++) {
             $this->raw = curl_exec($curl);
