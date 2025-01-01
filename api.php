@@ -26,10 +26,6 @@ define('HTTPS', true);    // 如果您的网站启用了https，请将此项置�
 define('DEBUG', false);      // 是否开启调试模式，正常使用时请将此项置为“false”
 define('JSONP', false);      // 是否开启JSONP模式，使用远程api时请开启
 define('CACHE_PATH', 'cache/');     // 文件缓存目录,请确保该目录存在且有读写权限。如无需缓存，可将此行注释掉
-define('USE_PROXY', true);
-define('PROXY_HOST', 'unlockerapi.ack20.eu.org');
-define('PROXY_PORT', 443);
-define('CA_CERT_PATH', dirname(__FILE__) . '/ca.crt');
 
 /*
  如果遇到程序不能正常运行，请开启调试模式，然后访问 http://你的网站/音乐播放器地址/api.php ，进入服务器运行环境检测。
@@ -339,9 +335,4 @@ function echojson($data)    //json和jsonp通用
     } else {
         die($data);
     }
-}
-
-// 在 curl 配置中添加证书
-if(file_exists(CA_CERT_PATH)) {
-    $opts[CURLOPT_CAINFO] = CA_CERT_PATH;
 }
